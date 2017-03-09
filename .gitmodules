@@ -1,0 +1,9 @@
+[submodule "tmux.ln/plugins/tpm"]
+	path = tmux.ln/plugins/tpm
+	url = git@github.com:tmux-plugins/tpm.git
+[submodule "colors.ln/base16-shell"]
+	path = colors.ln/base16-shell
+	url = git@github.com:chriskempson/base16-shell.git
+[submodule "vim.ln/bundle/Vundle.vim"]
+	path = vim.ln/bundle/Vundle.vim
+	url = git@github.com:VundleVim/Vundle.vim.git
