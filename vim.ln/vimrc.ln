@@ -21,7 +21,12 @@ set showmatch
 " highlight search
 set hlsearch
 set incsearch
+set ignorecase
+set smartcase
+set incsearch
 set backspace=indent,eol,start
+set clipboard=unnamed
+
 
 " Indentation type [tab || space]
 let indentation_type="tab"

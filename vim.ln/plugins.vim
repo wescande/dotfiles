@@ -7,6 +7,8 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'vim-syntastic/syntastic'
+
+Plugin 'chriskempson/base16-vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'edkolev/tmuxline.vim'
@@ -22,6 +24,9 @@ let g:airline_powerline_fonts = 1
 let g:ctrlp_custom_ignore = '\.[oda]$'
 let g:ctrlp_map = '<C-f>'
 let g:ctrlp_cmd = 'CtrlP'
+
+set laststatus=2
+set noshowmode
 
 let g:syntastic_cpp_compiler = 'gcc'
 let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++ -Wall -Werror -Wextra'
