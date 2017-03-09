@@ -9,14 +9,14 @@ symhpath	:= $(addprefix $(symdir).,$(notdir $(subst $(extension),,$(symrpath))))
 INDEX		= 1
 
 help:
-	@printf "\e[94m\e[7m"
+	@printf "\033[94m\033[7m"
 	@printf "              ===========================                      \n"
 	@printf "              | DOTFILES MAKEFILE USAGE |                      \n"
 	@printf "              ===========================                      \n"
 	@printf " make backup : move previous corresping dotfiles to ~/.backup. \n"
 	@printf " make link   : symlink from *.symlink to dotfiles.             \n"
 	@printf " make re     : backup and link.                                \n"
-	@printf "\e[27m\n"
+	@printf "\033[27m\n"
 
 .PHONY: link update backup help
 
@@ -27,11 +27,11 @@ $(symhpath):
 	@#$(eval source=$(filter %$(stem),$(symapath)))
 	@$(eval source=$(word $(INDEX),$(symapath)))
 	@# Start of linkage message
-	@$(if $(filter 1,$(INDEX)),printf "\e[4mGoing to link your config files now:\e[24m\n")
+	@$(if $(filter 1,$(INDEX)),printf "\033[4mGoing to link your config files now:\033[24m\n")
 	@# Different printf for even/odd INDEX
 	$(if $(filter 1,$(shell expr $(INDEX) % 2)),\
-		@printf "\e[38;5;239m",\
-		@printf "\e[38;5;246m")
+		@printf "\033[38;5;239m",\
+		@printf "\033[38;5;246m")
 	@# Different printf for INDEX=0
 	$(if $(filter 1,$(INDEX)),\
 		@printf "$@\t ➔  $(shell echo $(source))\n",\
