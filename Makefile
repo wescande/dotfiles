@@ -1,4 +1,4 @@
-dotfilesdir	:= ~/dotfiles/
+dotfilesdir	:= $(PWD)/
 symdir		:= ~/
 extension	:= .ln
 
