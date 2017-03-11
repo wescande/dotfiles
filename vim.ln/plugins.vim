@@ -13,6 +13,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'edkolev/tmuxline.vim'
 Plugin 'myusuf3/numbers.vim'
+Plugin 'scrooloose/nerdtree'
 
 call vundle#end()
 
@@ -24,6 +25,8 @@ let g:airline_powerline_fonts = 1
 let g:ctrlp_custom_ignore = '\.[oda]$'
 let g:ctrlp_map = '<C-f>'
 let g:ctrlp_cmd = 'CtrlP'
+
+noremap <C-g>				:NERDTreeToggle<CR>
 
 set laststatus=2
 set noshowmode
