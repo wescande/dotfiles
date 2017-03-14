@@ -1,10 +1,11 @@
-setw -g utf8 on
+#setw -g utf8 on
 #----------------------------------------
 # remap prefix from C-b to C-a
 #----------------------------------------
-set-option -g prefix C-a
-unbind C-b
-bind-key C-a send-prefix
+if-shell "if [[ `uname` == 'Darwin' ]]; then true; else false; fi" \
+	'set-option -g prefix C-a; unbind C-b; bind-key C-a send-prefix'
+if-shell "if [[ `uname` == 'Linux' ]]; then true; else false; fi" \
+	'set-option -g prefix C-q; unbind C-b; bind-key C-q send-prefix'
 
 #----------------------------------------
 # move windows around
