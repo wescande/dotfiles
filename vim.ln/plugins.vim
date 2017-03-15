@@ -27,6 +27,16 @@ let g:ctrlp_map = '<C-f>'
 let g:ctrlp_cmd = 'CtrlP'
 
 noremap <C-g>				:NERDTreeToggle<CR>
+autocmd WinEnter * call s:CloseIfOnlyNerdTreeLeft()
+function! s:CloseIfOnlyNerdTreeLeft()
+	if exists("t:NERDTreeBufName")
+		if bufwinnr(t:NERDTreeBufName) != -1
+			if winnr("$") == 1
+				q
+			endif
+		endif
+	endif
+endfunction
 
 set laststatus=2
 set noshowmode
