@@ -85,7 +85,7 @@ if !empty(display_placeholder)
 endif
 
 autocmd BufEnter * syntax match cType "\<[t]_\w\+\>"
-autocmd BufEnter * syntax match cType "\<\w\+\_[t]>"
+autocmd BufEnter * syntax match cType "\<\w\+_[t]\>"
 
 :au FocusLost * :set number
 :au FocusGained * :set relativenumber

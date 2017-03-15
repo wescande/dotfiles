@@ -17,8 +17,11 @@ bind-key Right swap-window -t +1
 # binds for pane management
 #----------------------------------------
 unbind %;
+unbind n;
 unbind &;
 unbind '"';
+bind-key n	new-session
+bind-key Tab	next-window
 bind-key _ split-window -c "#{pane_current_path}";
 bind-key | split-window -h -c "#{pane_current_path}";
 if-shell "if [[ `uname` == 'Darwin' ]]; then true; else false; fi" \
