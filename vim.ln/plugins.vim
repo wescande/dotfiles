@@ -15,6 +15,7 @@ Plugin 'edkolev/tmuxline.vim'
 Plugin 'myusuf3/numbers.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'valloric/youcompleteme'
+Plugin 'tpope/vim-commentary'
 
 call vundle#end()
 
@@ -28,6 +29,16 @@ let g:ctrlp_map = '<C-f>'
 let g:ctrlp_cmd = 'CtrlP'
 
 noremap <C-g>				:NERDTreeToggle<CR>
+autocmd WinEnter * call s:CloseIfOnlyNerdTreeLeft()
+function! s:CloseIfOnlyNerdTreeLeft()
+	if exists("t:NERDTreeBufName")
+		if bufwinnr(t:NERDTreeBufName) != -1
+			if winnr("$") == 1
+				q
+			endif
+		endif
+	endif
+endfunction
 
 set laststatus=2
 set noshowmode
