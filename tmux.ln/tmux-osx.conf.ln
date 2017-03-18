@@ -2,9 +2,9 @@
 #----------------------------------------
 # remap prefix from C-b to C-a
 #----------------------------------------
-set-option -g prefix C-q
+set-option -g prefix C-a
 unbind C-b
-bind-key C-q send-prefix
+bind-key C-a send-prefix
 
 #----------------------------------------
 # move windows around
@@ -23,21 +23,14 @@ bind-key n	new-session
 bind-key Tab	next-window
 bind-key _ split-window -c "#{pane_current_path}"
 bind-key | split-window -h -c "#{pane_current_path}"
-bind-key b split-window -c "#{pane_current_path}"
-bind-key v split-window -h -c "#{pane_current_path}"
+bind-key _ split-window -c "#{pane_current_path}"
+bind-key | split-window -h -c "#{pane_current_path}"
 bind-key c new-window -c "#{pane_current_path}"
 bind-key h select-pane -L
 bind-key j select-pane -D
 bind-key k select-pane -U
 bind-key l select-pane -R
 bind-key -r 0xC3 display 'c3 prefix binding hack'
-bind-key &			select-window -t 1
-bind-key -r 0xA9	select-window -t 2
-bind-key '"'		select-window -t 3
-bind-key "'"		select-window -t 4
-bind-key (			select-window -t 5
-bind-key -			select-window -t 6
-bind-key -r 0xA8	select-window -t 7
 bind r\
 	display 'source-file ~/.tmux.conf'\;\
 	source-file ~/.tmux.conf
@@ -98,6 +91,19 @@ run-shell ~/.tmux/plugins/tmux-continuum/continuum.tmux
 set-option -g default-terminal "screen-256color"
 set-option -ga terminal-overrides ",xterm-256color:Tc"
 set-option -g status-position top
+
+#----------------------------------------
+#Paste
+#----------------------------------------
+	# MacOS
+	# Copy-paste integration
+set-option -g default-command "reattach-to-user-namespace -l bash";
+setw -g mode-keys vi;
+bind-key -t vi-copy v begin-selection;
+bind-key -t vi-copy y copy-pipe "reattach-to-user-namespace pbcopy";
+unbind -t vi-copy Enter;
+bind-key -t vi-copy Enter copy-pipe "reattach-to-user-namespace pbcopy";
+bind ] run "reattach-to-user-namespace pbpaste | tmux load-buffer - && tmux paste-buffer";'
 
 # set -g window-style 'fg=white,bg=colour236'
 # set -g window-style 'fg=colour245,bg=colour245'
