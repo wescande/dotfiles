@@ -14,6 +14,7 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'edkolev/tmuxline.vim'
 Plugin 'myusuf3/numbers.vim'
 Plugin 'scrooloose/nerdtree'
+Plugin 'valloric/youcompleteme'
 
 call vundle#end()
 
@@ -39,3 +40,5 @@ let g:syntastic_cpp_check_header = 1
 let g:syntastic_cpp_remove_include_errors = 1
 let g:syntastic_c_remove_include_errors = 1
 let g:syntastic_c_include_dirs = ['../../../includes', '../../includes','../includes','./includes', '../../../include', '../../include', '../include', './include', './libft/includes', '../libft/includes', '../../libft/includes']
+
+let g:ycm_confirm_extra_conf = 0
