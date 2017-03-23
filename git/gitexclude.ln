@@ -1,0 +1,11 @@
+*.swp
+*.swo
+.DS_store
+a.out
+obj
+objs
+Session.vim
+*.aux
+*.log
+*.out
+__pycache__

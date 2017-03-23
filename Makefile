@@ -47,6 +47,6 @@ backup:
 	@mkdir -p ~/.backup
 	$(foreach file,$(symhpath), $(shell mv -f $(file) ~/.backup/ 2>&-\
    	   || rm $(file) 2>&-))
-	@printf "👌 Backed up all corresponding dotfiles in ~/.backup\n"
+	@printf " Backed up all corresponding dotfiles in ~/.backup\n"
 
 re: backup link
