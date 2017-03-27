@@ -87,11 +87,11 @@ endif
 autocmd BufEnter * syntax match cType "\<[t]_\w\+\>"
 autocmd BufEnter * syntax match cType "\<\w\+_[t]\>"
 
-:au FocusLost * :set number
-:au FocusGained * :set relativenumber
+" :au FocusLost * :set number
+" :au FocusGained * :set relativenumber
 
-autocmd InsertEnter * :set number
-autocmd InsertLeave * :set relativenumber
+" autocmd InsertEnter * :set number
+" autocmd InsertLeave * :set relativenumber
 
 source ~/.vim/plugins.vim
 source ~/.vim/alias.vim
