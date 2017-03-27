@@ -9,3 +9,5 @@ Session.vim
 *.log
 *.out
 __pycache__
+*.o
+*.d
