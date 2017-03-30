@@ -25,7 +25,9 @@ set ignorecase
 set smartcase
 set incsearch
 set backspace=indent,eol,start
-set clipboard=unnamed
+if $TMUX == ''
+	set clipboard=unnamed
+endif
 
 
 " Indentation type [tab || space]

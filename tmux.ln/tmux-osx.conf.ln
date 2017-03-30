@@ -97,7 +97,7 @@ set-option -g status-position top
 #----------------------------------------
 	# MacOS
 	# Copy-paste integration
-set-option -g default-command "reattach-to-user-namespace -l bash"
+set-option -g default-command "reattach-to-user-namespace -l zsh"
 setw -g mode-keys vi
 bind-key -t vi-copy v begin-selection
 bind-key -t vi-copy y copy-pipe "reattach-to-user-namespace pbcopy"
@@ -132,7 +132,7 @@ set -g status-right-attr "none"
 set -g message-fg "colour231"
 set -g message-command-bg "colour29"
 set -g status-attr "none"
-set -g status-utf8 "on"
+# set -g status-utf8 "on"
 set -g pane-border-fg "colour29"
 set -g status-left-attr "none"
 setw -g window-status-fg "colour231"
