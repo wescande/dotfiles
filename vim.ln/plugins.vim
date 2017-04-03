@@ -43,13 +43,12 @@ endfunction
 set laststatus=2
 set noshowmode
 
-let g:syntastic_cpp_compiler = 'gcc'
-let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++ -Wall -Werror -Wextra'
-let g:syntastic_check_on_open=1
-let g:syntastic_enable_signs=1
-let g:syntastic_cpp_check_header = 1
-let g:syntastic_cpp_remove_include_errors = 1
-let g:syntastic_c_remove_include_errors = 1
+let g:syntastic_c_compiler = 'gcc'
+let g:syntastic_c_compiler_options = '-Wall -Werror -Wextra'
+let g:syntastic_check_on_open = 1
+let g:syntastic_enable_signs = 1
+let g:syntastic_c_check_header = 1
+let g:syntastic_c_remove_include_errors = 0
 let g:syntastic_c_include_dirs = ['../../../includes', '../../includes','../includes','./includes', '../../../include', '../../include', '../include', './include', './libft/includes', '../libft/includes', '../../libft/includes']
 
 let g:ycm_confirm_extra_conf = 0
