@@ -7,9 +7,9 @@
 [submodule "vim.ln/bundle/Vundle.vim"]
 	path = vim.ln/bundle/Vundle.vim
 	url = git@github.com:VundleVim/Vundle.vim.git
-[submodule "fonts.ln/fonts"]
-	path = fonts.ln/fonts
-	url = https://github.com/powerline/fonts.git
 [submodule "zsh/zprezto.ln"]
 	path = zsh/zprezto.ln
 	url = https://github.com/sorin-ionescu/prezto.git
+[submodule "fonts.ln/fonts"]
+	path = fonts.ln/fonts
+	url = https://github.com/powerline/fonts.git
