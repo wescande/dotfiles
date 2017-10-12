@@ -25,6 +25,9 @@ set ignorecase
 set smartcase
 set incsearch
 set backspace=indent,eol,start
+set noendofline
+set noeol
+set binary
 if $TMUX == ''
 	set clipboard=unnamed
 endif

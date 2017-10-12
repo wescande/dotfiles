@@ -23,8 +23,8 @@ bind-key n	new-session
 bind-key Tab	next-window
 bind-key _ split-window -c "#{pane_current_path}"
 bind-key | split-window -h -c "#{pane_current_path}"
-bind-key _ split-window -c "#{pane_current_path}"
-bind-key | split-window -h -c "#{pane_current_path}"
+bind-key b split-window -c "#{pane_current_path}"
+bind-key v split-window -h -c "#{pane_current_path}"
 bind-key c new-window -c "#{pane_current_path}"
 bind-key h select-pane -L
 bind-key j select-pane -D
