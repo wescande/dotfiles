@@ -13,6 +13,8 @@ fi
 # Customize to your needs...
 unsetopt CORRECT
 export MAIL="wescande@student.42.fr"
+export EDITOR=vim
+export VISUAL=vim
 
 
 alias uio_make_and_lib="~/.update_makefile_dir.sh"
@@ -21,7 +23,6 @@ alias gst="git status"
 alias glol="git log --graph --pretty='%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 alias glola="git log --graph --pretty='%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all"
 alias ivm="vim"
-unalias rm
 
 git config --global core.excludesfile ~/.gitexclude
 
