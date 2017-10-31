@@ -16,6 +16,7 @@ Plugin 'myusuf3/numbers.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'valloric/youcompleteme'
 Plugin 'tpope/vim-commentary'
+Plugin 'pbondoer/vim-42header'
 
 call vundle#end()
 

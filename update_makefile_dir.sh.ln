@@ -18,7 +18,7 @@ then
 	then
 		expr "$(find ./src | grep "\.c$" | sed -e 's/src\///' -e 's/\.\///' -e 's/$/\\/')" : "\(.*\).$" >> NEWMAKEFILE
 	else
-		expr "$(find ./srcs | grep "\.s$" | sed -e 's/srcs\///' -e 's/\.\///' -e 's/$/\\/')" : "\(.*\).$" >> NEWMAKEFILE
+		expr "$(find ./srcs | grep "\.c$" | sed -e 's/srcs\///' -e 's/\.\///' -e 's/$/\\/')" : "\(.*\).$" >> NEWMAKEFILE
 	fi
 	echo "" >> NEWMAKEFILE
 	grep 'SRCS		=' $CUR_MAKEFILE >> NEWMAKEFILE
