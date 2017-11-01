@@ -17,7 +17,7 @@ for STR_WAS in $ALL_LINK
 do
 	STR_WILL="."$(echo $STR_WAS | sed -e s#\.ln\$## -e s#^.*/##)
 	printf "%-30s ➔  $CUR_DIR/$STR_WAS\n%*s " $STR_WILL ${#HOME} ""
-	ln -shf $CUR_DIR/$STR_WAS $HOME/$STR_WILL
+	ln -sf $CUR_DIR/$STR_WAS $HOME/$STR_WILL
 done
 echo -e "\r\033[32mLink are done\033[0m"
 ALL_INSTALL=$(find . -path ./.git -prune -o -name "*.install.sh" -print | sort -d)
