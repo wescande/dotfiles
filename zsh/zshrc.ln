@@ -12,9 +12,11 @@ fi
 
 # Customize to your needs...
 unsetopt CORRECT
+setopt clobber
 export MAIL="wescande@student.42.fr"
 export EDITOR=vim
 export VISUAL=vim
+unset LESS
 
 
 alias uio_make_and_lib="~/.update_makefile_dir.sh"
