@@ -105,3 +105,7 @@ if filereadable(expand("~/.vimrc_background"))
 	let base16colorspace=256
 	source ~/.vimrc_background
 endif
+augroup filetype
+	au! BufRead,BufNewFile *.s    set filetype=asm
+augroup END
+autocmd FileType asm setlocal commentstring=;\ %s

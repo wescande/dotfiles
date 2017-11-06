@@ -140,3 +140,9 @@ set -g status-left "#[fg=colour231,bg=colour36] #S #[fg=colour36,bg=colour23,nob
 set -g status-right "#[fg=colour29,bg=colour23,nobold,nounderscore,noitalics]#[fg=colour231,bg=colour29] %Y-%m-%d  %H:%M #[fg=colour36,bg=colour29,nobold,nounderscore,noitalics]#[fg=colour231,bg=colour36] #h "
 setw -g window-status-format "#[fg=colour231,bg=colour23] #I #[fg=colour231,bg=colour23] #W "
 setw -g window-status-current-format "#[fg=colour23,bg=colour29,nobold,nounderscore,noitalics]#[fg=colour231,bg=colour29] #I #[fg=colour231,bg=colour29] #W #[fg=colour29,bg=colour23,nobold,nounderscore,noitalics]"
+set -g window-active-style 'fg=colour250,bg=colour238'
+set -g window-style 'fg=colour240,bg=colour236'
+set -g pane-border-fg colour238
+set -g pane-border-bg colour235
+set -g pane-active-border-bg colour236
+set -g pane-active-border-fg colour154

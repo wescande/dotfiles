@@ -11,3 +11,4 @@ Session.vim
 __pycache__
 *.o
 *.d
+.vscode

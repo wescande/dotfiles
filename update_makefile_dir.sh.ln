@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 LIBPATH="/Users/wescande/Documents/libft"
 MYPATH=$(pwd)
 CUR_MAKEFILE=$MYPATH/Makefile
