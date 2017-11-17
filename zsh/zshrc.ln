@@ -13,14 +13,15 @@ fi
 # Customize to your needs...
 unsetopt CORRECT
 setopt clobber
+export USER="wescande"
 export MAIL="wescande@student.42.fr"
 export EDITOR=vim
 export VISUAL=vim
 unset LESS
 
 
-alias uio_make_and_lib="~/.update_makefile_dir.sh"
-alias oiu_reset_header="~/.scriptheader.sh"
+alias uio_make_and_lib="~/.update_makefile.sh"
+alias oiu_reset_header="~/.rollback_header.sh"
 alias gst="git status"
 alias glol="git log --graph --pretty='%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 alias glola="git log --graph --pretty='%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all"
@@ -31,24 +32,39 @@ git config --global core.excludesfile ~/.gitexclude
 if [[ `uname` == 'Darwin' ]]; then
 	export PATH="$HOME/.brew/bin:$PATH"
 	alias tmux="tmux -2 -f $HOME/.tmux-osx.conf"
+	#Custom prompt
+	prompt_context()
+	{
+		local user=`whoami`
+
+		if [[ "$user" != "$DEFAULT_USER" || -n "$SSH_CONNECTION" ]]; then
+			prompt_segment $PRIMARY_FG default " %(!.%{%F{yellow}%}.)%m "
+		fi
+	}
 else
+	export PATH=$PATH:$HOME/bin
 	alias open='xdg-open'
 	alias tmux="tmux -2 -f $HOME/.tmux.conf"
+	xmodmap -e "keycode 65 = space space space space space space space"
+	#Custom prompt
+	prompt_context()
+	{
+		local user=`whoami`
+
+		if [[ "$user" != "$DEFAULT_USER" || -n "$SSH_CONNECTION" ]]; then
+			prompt_segment $PRIMARY_FG default " %(!.%{%F{yellow}%}.) "
+		fi
+	}
 fi
 
 
-#Custom prompt
-prompt_context() {
-  local user=`whoami`
-
-  if [[ "$user" != "$DEFAULT_USER" || -n "$SSH_CONNECTION" ]]; then
-    prompt_segment $PRIMARY_FG default " %(!.%{%F{yellow}%}.)%m "
-  fi
-}
 
 BASE16_SHELL="$HOME/.colors/base16-shell"
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
-if [ -z $TMUX ]
-then
+
+if [ -z $TMUX ]; then
 	tmux attach
 fi
+
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
