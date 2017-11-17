@@ -4,3 +4,4 @@ zsh/oh-my-zsh.ln/themes/bullet*
 tmux.ln/plugins/*
 tmux.ln/resurrect
 !tmux.ln/plugins/tpm
+vim.ln/plugged
