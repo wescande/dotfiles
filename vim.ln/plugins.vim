@@ -6,7 +6,8 @@ filetype off
 call plug#begin('~/.vim/plugged')
 
 " syntax helper
-Plug 'vim-syntastic/syntastic'
+" Plug 'vim-syntastic/syntastic'
+Plug 'w0rp/ale'
 " quick (un)comment
 Plug 'tpope/vim-commentary'
 " more text object to use
