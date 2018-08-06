@@ -105,6 +105,7 @@ endif
 hi Normal           ctermbg=none
 augroup filetype
 	au! BufRead,BufNewFile *.s    set filetype=asm
+	au! BufRead,BufNewFile *.asm  set filetype=asm
 augroup END
 autocmd FileType asm setlocal commentstring=;\ %s
 
