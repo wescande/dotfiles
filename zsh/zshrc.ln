@@ -68,6 +68,7 @@ BASE16_SHELL="$HOME/.colors/base16-shell"
 # if [ ! -z $TERM ] && [ "$TERM" != "linux" ]; then
 # 	[ -z $TMUX ] && tmux attach
 # fi
+#
 export PATH="$HOME/.cargo/bin:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
