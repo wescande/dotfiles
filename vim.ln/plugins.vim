@@ -27,6 +27,8 @@ Plug 'myusuf3/numbers.vim'
 Plug 'scrooloose/nerdtree'
 " Completion
 Plug 'maralla/completor.vim'
+
+Plug 'rust-lang/rust.vim'
 " Plug 'Shougo/deoplete.nvim'
 " Plug 'roxma/nvim-yarp'
 " Plug 'roxma/vim-hug-neovim-rpc'
@@ -111,3 +113,6 @@ let g:fzf_colors =
   \ 'marker':  ['fg', 'Keyword'],
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
+
+
+let g:rustfmt_autosave = 1

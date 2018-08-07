@@ -5,3 +5,7 @@ tmux.ln/plugins/*
 tmux.ln/resurrect
 !tmux.ln/plugins/tpm
 vim.ln/plugged
+config.ln/google-chrome
+config.ln/transmission
+config.ln/Code
+config.ln
