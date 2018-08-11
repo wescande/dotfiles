@@ -89,12 +89,6 @@ endif
 autocmd BufEnter * syntax match cType "\<[t]_\w\+\>"
 autocmd BufEnter * syntax match cType "\<\w\+_[t]\>"
 
-" :au FocusLost * :set number
-" :au FocusGained * :set relativenumber
-
-" autocmd InsertEnter * :set number
-" autocmd InsertLeave * :set nrelativenumber
-
 source ~/.vim/plugins.vim
 source ~/.vim/alias.vim
 " Colors
@@ -105,10 +99,11 @@ endif
 hi Normal           ctermbg=none
 augroup filetype
 	au! BufRead,BufNewFile *.s    set filetype=asm
+	au! BufRead,BufNewFile *.asm  set filetype=asm
 augroup END
 autocmd FileType asm setlocal commentstring=;\ %s
 
 
 " let g:syntastic_python_flake8_exec = 'python3'
 " let g:syntastic_python_flake8_args = ['-m', 'flake8']
-let g:syntastic_python_python_exec = '/Users/wescande/.brew/bin/python3'
+"let g:syntastic_python_python_exec = '/Users/wescande/.brew/bin/python3'

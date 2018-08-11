@@ -27,6 +27,10 @@ alias gst="git status"
 alias glol="git log --graph --pretty='%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 alias glola="git log --graph --pretty='%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all"
 alias ivm="vim"
+alias vi="vim"
+alias rvim="sudo -E vim"
+alias grep="rg"
+alias cat="bat"
 
 git config --global core.excludesfile ~/.gitexclude
 
@@ -64,6 +68,7 @@ BASE16_SHELL="$HOME/.colors/base16-shell"
 # if [ ! -z $TERM ] && [ "$TERM" != "linux" ]; then
 # 	[ -z $TMUX ] && tmux attach
 # fi
+#
 export PATH="$HOME/.cargo/bin:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

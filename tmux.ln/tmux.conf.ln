@@ -73,7 +73,6 @@ set -g @tpm_plugins '\
 	tmux-plugins/tpm\
 	tmux-plugins/tmux-resurrect\
 	tmux-plugins/tmux-continuum\
-	aurelien-rainone/tmux-gitbar\
 	tmuxinator/tmuxinator\
 '
 
@@ -90,7 +89,7 @@ set -g @resurrect-capture-pane-contents 'on'
 run-shell ~/.tmux/plugins/tmux-resurrect/resurrect.tmux
 set -g @continuum-save-interval '15'
 set -g @continuum-boot 'on'
-set -g @continuum-restore 'on'
+# set -g @continuum-restore 'on'
 set -g @continuum-boot-options 'iterm'
 run-shell ~/.tmux/plugins/tmux-continuum/continuum.tmux
 
@@ -128,7 +127,7 @@ set -g message-bg "colour29"
 set -g message-fg "colour231"
 set -g message-command-bg "colour29"
 # set -g status-attr "none"
-# set -g status-utf8 "on"
+ # set -g status-utf8 "on"
 # set -g pane-border-fg "colour29"
 # set -g status-left-attr "none"
 setw -g window-status-fg "colour231"
