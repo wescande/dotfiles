@@ -80,8 +80,10 @@ set noshowmode
 " let g:syntastic_c_remove_include_errors = 0
 " let g:syntastic_c_include_dirs = ['../../../includes', '../../includes','../includes','./includes', '../../../include', '../../include', '../include', './include', './libft/includes', '../libft/includes', '../../libft/includes']
 " let g:ale_c_gcc = '-std=c++14 -isystem /usr/include/c++/v1 -I/usr/include/c++/v1 -I./includes -I../includes'
-let g:ale_c_gcc_options = '-pedantic -Wall -Werror -Wextra -I. -I./includes -I../includes -I../../includes -I../../../includes -I./include -I../include -I../../include -I../../../include -I./libft/includes -I../libft/includes -I../../libft/includes -I../../../libft/includes -I./libft/include -I../libft/include -I../../libft/include -I../../../libft/include'
+let g:ale_c_gcc_options = '-pedantic -Wall -Werror -Wextra -I. -I.. -I../.. -I../../.. -Iincludes -I../includes -I../../includes -I../../../includes -Iinclude -I../include -I../../include -I../../../include -Ilibft/includes -I../libft/includes -I../../libft/includes -I../../../libft/includes -Ilibft/include -I../libft/include -I../../libft/include -I../../../libft/include'
 let g:ale_c_clang_options = g:ale_c_gcc_options
+let g:ale_cpp_gcc_options = g:ale_c_gcc_options
+let g:ale_cpp_clang_options = g:ale_c_gcc_options
 " set path+=.,/usr/local/include,/usr/include,../include,./include,
 
 

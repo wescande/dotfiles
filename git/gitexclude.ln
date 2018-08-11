@@ -2,6 +2,7 @@
 *.swo
 .DS_store
 a.out
+.obj
 obj
 objs
 Session.vim
