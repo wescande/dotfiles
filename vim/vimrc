@@ -1,0 +1,100 @@
+set nocompatible
+
+set omnifunc=syntaxcomplete#Complete
+
+filetype on
+syntax on
+set mouse=a
+
+set encoding=utf-8
+set ai
+set nu
+set cc=80
+set t_Co=256
+set cursorline
+set whichwrap+=<,>,h,l,[,]
+hi CursorLine term=bold cterm=bold guibg=Grey40
+set splitbelow
+set splitright
+" highlights matching brackets
+set showmatch
+" highlight search
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+set incsearch
+set backspace=indent,eol,start
+
+" Indentation type [tab || space]
+let indentation_type="tab"
+" Indentation length
+let indentation_length=4
+
+execute "set tabstop=". indentation_length
+execute "set shiftwidth=". indentation_length
+execute "set softtabstop=". indentation_length
+let g:enable_numbers = 1
+
+" paste Function
+if &term =~ "xterm.*"
+	let &t_ti .= "\e[?6h\e[?69h"
+	let &t_te .= "\e7\e[?69l\e[?6l\e8"
+	let &t_CV = "\e[%i%p1%d;%p2%ds"
+	let &t_CS = "y"
+	let &t_ti .= "\e[?2004h"
+	let &t_te .= "\e[?2004l"
+	function! XTermPasteBegin(ret)
+		set pastetoggle=<Esc>[201~
+		set paste
+		return a:ret
+	endfunction
+	map <expr> <Esc>[200~ XTermPasteBegin("i")
+	imap <expr> <Esc>[200~ XTermPasteBegin("")
+	cmap <Esc>[200~ <nop>
+	cmap <Esc>[201~ <nop>
+else
+	function! WrapForTmux(s)
+		if !exists('$TMUX')
+			return a:s
+		endif
+		let tmux_start = "\<Esc>Ptmux;"
+		let tmux_end = "\<Esc>\\"
+		return tmux_start . substitute(a:s, "\<Esc>", "\<Esc>\<Esc>", 'g') . tmux_end
+	endfunction
+	let &t_SI .= WrapForTmux("\<Esc>[?2004h")
+	let &t_EI .= WrapForTmux("\<Esc>[?2004l")
+	function! XTermPasteBegin()
+		set pastetoggle=<Esc>[201~
+		set paste
+		return ""
+	endfunction
+	inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
+endif
+
+" Enabled / Disabled placeholder chars
+let display_placeholder=1
+" Charactere placeholder for tabulation [2 char]
+let tab_placeholder='»·'
+" Charactere placeholder for space [1 char]
+let space_placeholder='·'
+if !empty(display_placeholder)
+	execute "set list listchars=tab:". tab_placeholder .",trail:". space_placeholder
+endif
+
+autocmd BufEnter * syntax match cType "\<[t]_\w\+\>"
+autocmd BufEnter * syntax match cType "\<\w\+_[t]\>"
+
+source ~/.vim/plugins.vim
+source ~/.vim/alias.vim
+" Colors
+if filereadable(expand("~/.vimrc_background"))
+	let base16colorspace=256
+	source ~/.vimrc_background
+endif
+hi Normal           ctermbg=none
+augroup filetype
+	au! BufRead,BufNewFile *.s    set filetype=asm
+	au! BufRead,BufNewFile *.asm  set filetype=asm
+augroup END
+autocmd FileType asm setlocal commentstring=;\ %s

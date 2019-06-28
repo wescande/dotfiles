@@ -1,0 +1,15 @@
+*.swp
+*.swo
+.DS_store
+a.out
+.obj
+obj
+objs
+Session.vim
+*.aux
+*.log
+*.out
+__pycache__
+*.o
+*.d
+.vscode
