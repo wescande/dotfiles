@@ -40,7 +40,7 @@ fi
 mkdir -p "$DIR_BUILD"
 
 install_PowerlineFonts
-install_FiraCodeFonts
+# install_FiraCodeFonts
 
 fc-cache -f
 

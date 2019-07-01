@@ -37,40 +37,40 @@ execute "set softtabstop=". indentation_length
 let g:enable_numbers = 1
 
 " paste Function
-if &term =~ "xterm.*"
-	let &t_ti .= "\e[?6h\e[?69h"
-	let &t_te .= "\e7\e[?69l\e[?6l\e8"
-	let &t_CV = "\e[%i%p1%d;%p2%ds"
-	let &t_CS = "y"
-	let &t_ti .= "\e[?2004h"
-	let &t_te .= "\e[?2004l"
-	function! XTermPasteBegin(ret)
-		set pastetoggle=<Esc>[201~
-		set paste
-		return a:ret
-	endfunction
-	map <expr> <Esc>[200~ XTermPasteBegin("i")
-	imap <expr> <Esc>[200~ XTermPasteBegin("")
-	cmap <Esc>[200~ <nop>
-	cmap <Esc>[201~ <nop>
-else
-	function! WrapForTmux(s)
-		if !exists('$TMUX')
-			return a:s
-		endif
-		let tmux_start = "\<Esc>Ptmux;"
-		let tmux_end = "\<Esc>\\"
-		return tmux_start . substitute(a:s, "\<Esc>", "\<Esc>\<Esc>", 'g') . tmux_end
-	endfunction
-	let &t_SI .= WrapForTmux("\<Esc>[?2004h")
-	let &t_EI .= WrapForTmux("\<Esc>[?2004l")
-	function! XTermPasteBegin()
-		set pastetoggle=<Esc>[201~
-		set paste
-		return ""
-	endfunction
-	inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
-endif
+" if &term =~ "xterm.*"
+" 	let &t_ti .= "\e[?6h\e[?69h"
+" 	let &t_te .= "\e7\e[?69l\e[?6l\e8"
+" 	let &t_CV = "\e[%i%p1%d;%p2%ds"
+" 	let &t_CS = "y"
+" 	let &t_ti .= "\e[?2004h"
+" 	let &t_te .= "\e[?2004l"
+" 	function! XTermPasteBegin(ret)
+" 		set pastetoggle=<Esc>[201~
+" 		set paste
+" 		return a:ret
+" 	endfunction
+" 	map <expr> <Esc>[200~ XTermPasteBegin("i")
+" 	imap <expr> <Esc>[200~ XTermPasteBegin("")
+" 	cmap <Esc>[200~ <nop>
+" 	cmap <Esc>[201~ <nop>
+" else
+" 	function! WrapForTmux(s)
+" 		if !exists('$TMUX')
+" 			return a:s
+" 		endif
+" 		let tmux_start = "\<Esc>Ptmux;"
+" 		let tmux_end = "\<Esc>\\"
+" 		return tmux_start . substitute(a:s, "\<Esc>", "\<Esc>\<Esc>", 'g') . tmux_end
+" 	endfunction
+" 	let &t_SI .= WrapForTmux("\<Esc>[?2004h")
+" 	let &t_EI .= WrapForTmux("\<Esc>[?2004l")
+" 	function! XTermPasteBegin()
+" 		set pastetoggle=<Esc>[201~
+" 		set paste
+" 		return ""
+" 	endfunction
+" 	inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
+" endif
 
 " Enabled / Disabled placeholder chars
 let display_placeholder=1

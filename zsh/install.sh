@@ -8,7 +8,6 @@ SUCCESS="\033[38;5;70m"
 RES="\033[0m"
 
 if [ ! "$SHELL" == "$TARGET_SHELL" ]; then
-	echo pass here
 	if ! type "$TARGET_SHELL" > /dev/null; then
 		>&2 echo -e "\t$ERROR$TARGET_SHELL not found$RES"
 		exit 1
