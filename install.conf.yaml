@@ -11,8 +11,8 @@
         ~/.cargo: ~/bin/cargo
         ~/.zshrc: zsh/zshrc
         ~/.i3: i3
-        ~/.config/alacritty: alacritty
         ~/.config/compton.conf: compton/compton.conf
+        ~/.config/dunst: dunst
         ~/bin/volume.sh: script/volume.sh
 
 - shell:
@@ -50,7 +50,12 @@
         description: Install rust
 
     -
-        command: $HOME/.cargo/bin/cargo install ripgrep bat cargo-tree
-        description: Install various rust binary
+        command: $HOME/.cargo/bin/cargo install-update -a -i ripgrep bat cargo-tree || $HOME/.cargo/bin/cargo install cargo-update ripgrep bat cargo-tree
+        description: Install | Update various rust binary
+        stdout: true
 
-
+    -
+        # https://git.suckless.org/st/
+        command: ./st/install.sh
+        description: Download compile and install st [sudo could be ask]
+        quiet: true

@@ -5,6 +5,7 @@ set omnifunc=syntaxcomplete#Complete
 filetype on
 syntax on
 set mouse=a
+set ttymouse=sgr
 
 set encoding=utf-8
 set ai
