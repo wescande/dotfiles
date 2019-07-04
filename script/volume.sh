@@ -38,7 +38,6 @@ then
 else
 	toshow=$(($volume*$MAX_WIDTH/100))
 	tocomplete=$(($MAX_WIDTH-$toshow))
-	echo "$toshow vs $tocomplete"
 	if [ "$REVERSE_BAR" = "true" ]
 	then
 		message=$(printf '%*s%s┤' $tocomplete "" $(printf '%.0s─' $(eval "echo {1.."$(($toshow))"}")}))

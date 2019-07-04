@@ -56,6 +56,8 @@ bindsym XF86AudioLowerVolume exec --no-startup-id ~/bin/volume.sh down # decreas
 bindsym XF86AudioMute exec --no-startup-id pactl ~/bin/volume.sh mute  # mute sound
 
 # Screen brightness controls
+bindsym XF86MonBrightnessUp exec --no-startup-id ~/bin/brightness.sh up
+bindsym XF86MonBrightnessDown exec --no-startup-id ~/bin/brightness.sh down
 # bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
 # bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
 
@@ -297,13 +299,22 @@ exec --no-startup-id clipit
 # exec_always --no-startup-id sbxkb
 exec --no-startup-id start_conky_maia
 # exec --no-startup-id start_conky_green
-exec --no-startup-id xautolock -time 10 -locker blurlock
+# exec --no-startup-id xautolock -time 10 -locker blurlock
+exec --no-startup-id xidlehook --not-when-fullscreen \
+	--timer normal 550 \
+		'~/bin/dimscreen.sh .5' \
+		'~/bin/dimscreen.sh 1'\
+	--timer normal 600 \
+		'~/bin/dimscreen.sh 1; /usr/bin/blurlock' \
+		''
+
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 
 exec --no-startup-id albert
 exec --no-startup-id xset r rate 300 40
 exec --no-startup-id alttab -bg "#000000" -fg "#ffffff" -frame "#168773" -t 200x200 -i 199x80
+exec --no-startup-id redshift-gtk
 
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:

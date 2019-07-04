@@ -12,4 +12,4 @@ convert $tmp -scale 10% -blur 0x2.5 -resize 1000% $blur
 rm $tmp
 
 # lock the screen
-i3lock -fi $blur
+i3lock -fei $blur
