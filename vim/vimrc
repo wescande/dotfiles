@@ -26,6 +26,7 @@ set ignorecase
 set smartcase
 set incsearch
 set backspace=indent,eol,start
+set nofixendofline
 
 " Indentation type [tab || space]
 let indentation_type="tab"
@@ -55,22 +56,22 @@ let g:enable_numbers = 1
 " 	cmap <Esc>[200~ <nop>
 " 	cmap <Esc>[201~ <nop>
 " else
-" 	function! WrapForTmux(s)
-" 		if !exists('$TMUX')
-" 			return a:s
-" 		endif
-" 		let tmux_start = "\<Esc>Ptmux;"
-" 		let tmux_end = "\<Esc>\\"
-" 		return tmux_start . substitute(a:s, "\<Esc>", "\<Esc>\<Esc>", 'g') . tmux_end
-" 	endfunction
-" 	let &t_SI .= WrapForTmux("\<Esc>[?2004h")
-" 	let &t_EI .= WrapForTmux("\<Esc>[?2004l")
-" 	function! XTermPasteBegin()
-" 		set pastetoggle=<Esc>[201~
-" 		set paste
-" 		return ""
-" 	endfunction
-" 	inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
+	function! WrapForTmux(s)
+		if !exists('$TMUX')
+			return a:s
+		endif
+		let tmux_start = "\<Esc>Ptmux;"
+		let tmux_end = "\<Esc>\\"
+		return tmux_start . substitute(a:s, "\<Esc>", "\<Esc>\<Esc>", 'g') . tmux_end
+	endfunction
+	let &t_SI .= WrapForTmux("\<Esc>[?2004h")
+	let &t_EI .= WrapForTmux("\<Esc>[?2004l")
+	function! XTermPasteBegin()
+		set pastetoggle=<Esc>[201~
+		set paste
+		return ""
+	endfunction
+	inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
 " endif
 
 " Enabled / Disabled placeholder chars
@@ -97,5 +98,7 @@ hi Normal           ctermbg=none
 augroup filetype
 	au! BufRead,BufNewFile *.s    set filetype=asm
 	au! BufRead,BufNewFile *.asm  set filetype=asm
+	au! BufRead,BufNewFile *.c    set filetype=c
+	au! BufRead,BufNewFile *.cc   set filetype=cpp
+	au! BufRead,BufNewFile *.h    set filetype=cpp
 augroup END
-autocmd FileType asm setlocal commentstring=;\ %s

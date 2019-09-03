@@ -27,7 +27,7 @@ font xft:URWGothic-Book 11
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec cd $(xcwd) && st
+bindsym $mod+Return exec cd $(xcwd zsh) && st
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -72,7 +72,7 @@ bindsym $mod+F5 exec st -e 'mocp'
 bindsym $mod+t exec --no-startup-id pkill compton
 bindsym $mod+Ctrl+t exec --no-startup-id compton -b
 bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
-bindsym Print exec --no-startup-id i3-scrot
+bindsym Print exec gnome-screenshot -i #--no-startup-id i3-scrot
 bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
 bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
 bindsym $mod+Ctrl+h exec xdg-open /usr/share/doc/manjaro/i3_help.pdf
@@ -313,6 +313,8 @@ exec_always --no-startup-id fix_xcursor
 
 exec --no-startup-id albert
 exec --no-startup-id xset r rate 300 40
+exec --no-startup-id setxkbmap -option compose:ralt
+exec --no-startup-id setxkbmap -option ctrl:nocaps
 exec --no-startup-id alttab -bg "#000000" -fg "#ffffff" -frame "#168773" -t 200x200 -i 199x80
 exec --no-startup-id redshift-gtk
 

@@ -10,7 +10,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'wellle/targets.vim'
 	Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'}
 	Plug 'junegunn/fzf.vim'
-	Plug 'jiangmiao/auto-pairs'
+	" Plug 'jiangmiao/auto-pairs'
 
 	Plug 'chriskempson/base16-vim'
 	Plug 'vim-airline/vim-airline'
@@ -47,7 +47,7 @@ endfunction
 set laststatus=2
 set noshowmode
 
-let g:ale_c_gcc_options = '-pedantic -Wall -Werror -Wextra -I. -I.. -I../.. -I../../.. -Iincludes -I../includes -I../../includes -I../../../includes -Iinclude -I../include -I../../include -I../../../include -Ilibft/includes -I../libft/includes -I../../libft/includes -I../../../libft/includes -Ilibft/include -I../libft/include -I../../libft/include -I../../../libft/include'
+let g:ale_c_gcc_options = '-Wall -Werror -Wextra -Wshadow -I. -I.. -I../.. -I../../.. -Iincludes -I../includes -I../../includes -I../../../includes -Iinclude -I../include -I../../include -I../../../include -Ilibft/includes -I../libft/includes -I../../libft/includes -I../../../libft/includes -Ilibft/include -I../libft/include -I../../libft/include -I../../../libft/include -I./lib/tcl/include -I../lib/tcl/include -I../../lib/tcl/include -I../../../lib/tcl/include'
 let g:ale_c_clang_options = g:ale_c_gcc_options
 let g:ale_cpp_gcc_options = g:ale_c_gcc_options
 let g:ale_cpp_clang_options = g:ale_c_gcc_options
@@ -85,9 +85,12 @@ let g:fzf_colors =
   \ 'header':  ['fg', 'Comment'] }
 
 " fzf to use ripgrep
-let g:rg_command = '
-  \ rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --color "always"
-  \ -g "*.{js,json,php,md,styl,jade,html,config,py,cpp,c,go,hs,rb,conf}"
-  \ -g "!{.git,node_modules,vendor}/*" '
+" let g:rg_command = '
+"   \ rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --color "always"'
+  " \ -g "*.{js,json,php,md,styl,jade,html,config,py,cpp,c,go,hs,rb,conf}"
+  " \ -g "!{.git,node_modules,vendor}/*" '
 
 command! -bang -nargs=* F call fzf#vim#grep(g:rg_command .shellescape(<q-args>), 1, <bang>0)
+autocmd FileType asm setlocal commentstring=;\ %s
+autocmd FileType cpp setlocal commentstring=//\ %s
+autocmd FileType c setlocal commentstring=//\ %s

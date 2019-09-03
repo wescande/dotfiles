@@ -13,6 +13,7 @@
         ~/.i3: i3
         ~/.config/compton.conf: compton/compton.conf
         ~/.config/dunst: dunst
+        ~/.config/redshift: redshift
         ~/bin/volume.sh: script/volume.sh
         ~/bin/brightness.sh: script/brightness.sh
         ~/bin/dimscreen.sh: script/dimscreen.sh
@@ -60,6 +61,7 @@
         # https://git.suckless.org/st/
         command: ./st/install.sh
         description: Download compile and install st [sudo could be ask]
-        quiet: true
+        # quiet: true
         stdin: true
         stdout: true
+        stderr: true
